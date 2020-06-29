@@ -82,7 +82,6 @@
 (global-hungry-delete-mode)
 
 ;;smartparens config
-(require 'smartparens-config)
 (smartparens-global-mode t)
 
 ;;swiper consel ivy
