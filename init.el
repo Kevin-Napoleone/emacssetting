@@ -1,68 +1,16 @@
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-;;(package-initialize)
+(package-initialize)
 
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
-;; cl - Common Lisp Extension
-(require 'cl)
+;; Package Management
+;; -----------------------------------------------------------------
+(require 'init-packages)
 
-;; Add Packages
-(defvar my/packages '(
-		      company
-		      monokai-theme
-		      hungry-delete
-		      swiper
-		      ivy
-		      counsel
-		      smartparens
-		      js2-mode
-		      nodejs-repl
-		      ) "Default packages")
-
-
-(setq package-selected-packages my/packages)
-
-(defun my/packages-installed-p ()
-     (loop for pkg in my/packages
-	   when (not (package-installed-p pkg)) do (return nil)
-	   finally (return t)))
-
-(unless (my/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-    (package-refresh-contents)
-    (dolist (pkg my/packages)
-      (when (not (package-installed-p pkg))
-	(package-install pkg))))
-
-;; Find Executable Path on OS X
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+(setq ring-bell-function 'ignore)
 
 
 
-;;config for smartparens
-(require 'smartparens-config)
-(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-(smartparens-global-mode t)
 
-;;js config
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
-
-
-;;swiper consel ivy
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
 (global-set-key "\C-s" 'swiper)
@@ -98,8 +46,6 @@
 ;;turn off the startup help screen
 (setq inhibit-splash-screen 1)
 
-;;open global company completion
-(global-company-mode t)
 
 ;;unuse backup file
 (setq make-backup-files nil)
@@ -128,14 +74,11 @@
 ;;show current line
 (global-hl-line-mode t)
 
-;;hungry-delete
-(require 'hungry-delete)
-(global-hungry-delete-mode)
 
 ;;set window position and size
 ;;(set-frame-position (selected-frame) 0 0)
 ;;(set-frame-width (selected-frame) 90)
-;;(set-frame-height (selected-frame) 30)
+;;(et-frame-height (selected-frame) 30)
 
 
 (custom-set-variables
