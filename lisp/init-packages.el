@@ -32,34 +32,6 @@
 ;; cl - Common Lisp Extension
 (require 'cl)
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-;;(package-initialize)
-
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  )
-
-;; Add Packages
-(defvar taohuadaozhu/packages '(
-		      company
-		      monokai-theme
-		      hungry-delete
-		      swiper
-		      ivy
-		      counsel
-		      smartparens
-		      js2-mode
-		      nodejs-repl
-		      popwin
-		      ) "Default packages")
-
-
-(setq package-selected-packages taohuadaozhu/packages)
 
 (defun taohuadaozhu/packages-installed-p ()
      (loop for pkg in taohuadaozhu/packages
@@ -83,6 +55,7 @@
 
 ;;smartparens config
 (smartparens-global-mode t)
+
 
 ;;swiper consel ivy
 (ivy-mode 1)
