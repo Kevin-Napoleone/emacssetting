@@ -1,5 +1,8 @@
 (setq ring-bell-function 'ignore)
 
+;;maximized window
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;;unuse backup file
 (setq make-backup-files nil)
 
