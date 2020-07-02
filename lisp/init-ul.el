@@ -1,4 +1,3 @@
-
 ;;turn off the toolbar
 (tool-bar-mode -1)
 
