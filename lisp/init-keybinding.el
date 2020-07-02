@@ -29,4 +29,8 @@
 ;;set indentation
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
+;;hippie
+(global-set-key (kbd "M-s") 'hippie-expand)
+
+
 (provide 'init-keybinding)
