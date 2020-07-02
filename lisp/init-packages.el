@@ -1,4 +1,3 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -24,6 +23,12 @@
 		      js2-mode
 		      nodejs-repl
 		      popwin
+		      elpy
+		      flycheck
+		      py-autopep8
+		      blacken
+		      ein
+		      magit
 		      ) "Default packages")
 
 
@@ -56,6 +61,25 @@
 ;;smartparens config
 (smartparens-global-mode t)
 
+;;enable elpy
+(elpy-enable)
+
+;; Use Ipython for REPL
+(setq python-shell-interpreter "jupyter"
+      python-shell-interpreter-args "console --simple-prompt"
+      python-shell-prompt-detect-failure-warning nil)
+(add-to-list 'python-shell-completion-native-disabled-interpreters
+	     "jupyter")
+
+
+;;Enable Flycheck
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;;Enable autopep8
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 ;;swiper consel ivy
 (ivy-mode 1)
