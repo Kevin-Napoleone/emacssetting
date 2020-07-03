@@ -11,7 +11,7 @@
 (setq recentf-max-menu-items 15)
 
 ;;removing pairs
-(sp-pair "'" nil :actions :rem)
+;;(sp-pair "'" nil :actions :rem)
 
 ;;adding pairs
 ;;(sp-pair "'" "'" )
