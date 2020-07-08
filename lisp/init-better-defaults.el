@@ -63,4 +63,14 @@
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+;; 多行注释与反注释
+(defun my-comment-or-uncomment-region (beg end &optional arg)  
+  (interactive (if (use-region-p)  
+                   (list (region-beginning) (region-end) nil)  
+                 (list (line-beginning-position)  
+                       (line-beginning-position 2))))  
+  (comment-or-uncomment-region beg end arg)  
+)  
+(global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region) 
+
 (provide 'init-better-defaults)

@@ -18,6 +18,9 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
+;; 注释与反注释
+(global-set-key (kbd "C-c C-/") 'comment-or-uncomment-region)
+
 ;;set shortcuts
 (global-set-key (kbd "C-c a") 'org-agenda)
 
