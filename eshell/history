@@ -1,0 +1,3 @@
+ls
+rm .emacs\~
+rm .emacs
