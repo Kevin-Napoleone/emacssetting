@@ -10,5 +10,7 @@
 
 (setq ring-bell-function 'ignore)
 
+(setq make-backup-files nil)
+
 (provide 'init-startup)
 ;;; init-startup.el ends here
