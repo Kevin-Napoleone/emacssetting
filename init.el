@@ -17,12 +17,16 @@
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+
 (require 'init-startup)
 (require 'init-elpa)
 (require 'init-ui)
 (require 'init-package)
 (require 'init-const)
 (require 'init-lsp)
+
+(require 'eglot)
+(add-to-list 'eglot-server-programs '((c++-mode c-mode) . "clangd"))
 
 (when (file-exists-p custom-file)
   (load-file custom-file))

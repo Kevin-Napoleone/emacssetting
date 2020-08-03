@@ -8,13 +8,12 @@
     :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
 	   (python-mode . lsp-deferred)
 	   (c-mode . lsp-deferred)
-	   (java-mode . lsp-deferred)
 	   (c++-mode . lsp-deferred)
-	   (js-mode . lsp-deferred)
-	   (html-mode . lsp-deferred)
             ;; if you want which-key integration
             (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp-deferred)
+
+
 
 ;; optionally
 (use-package lsp-ui :commands lsp-ui-mode)

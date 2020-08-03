@@ -82,5 +82,12 @@
   :defer nil
   :config (which-key-mode))
 
+
+;;eglot
+(use-package eglot
+  :hook ((c-mode c++-mode) . eglot-ensure))
+;;  :init
+;;  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd")))
+
 (provide 'init-package)
 ;;; init-package.el ends here
